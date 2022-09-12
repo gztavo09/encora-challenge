@@ -1,20 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import { parse } from '@/utils/storage'
 
 Vue.use(Vuex)
-
-const STORAGE_KEY = 'vuetify-todos'
-
-const parse = function () {
-  let toParse = ''
-  if (window.localStorage.getItem(STORAGE_KEY)) {
-    toParse = window.localStorage.getItem(STORAGE_KEY)
-  } else {
-    toParse = '[]'
-  }
-  console.log('parseado!')
-  return JSON.parse(toParse)
-}
 
 const state = {
   todos: parse()
